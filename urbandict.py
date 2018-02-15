@@ -28,7 +28,7 @@ else:
         query = trigger.group(2).strip().lower()
         results = urban_search(query)
         if results:
-            bot.say('{} {}'.format(underline(results[0]), results[1]))
+            bot.say('{} — {}'.format(underline(results[0]), results[1]))
         else:
             bot.say('Couldn\'t find anything for {}'.format(bold(query)))
 
@@ -41,6 +41,6 @@ if __name__ == '__main__':
     print('Looking up "{}"'.format(query))
     results = urban_search(query)
     if results:
-        print('{}: {}'.format(results[0], results[1]))
+        print('{} — {}'.format(results[0], results[1]))
     else:
         print('Couldn\'t find anything for "{}"'.format(query))
