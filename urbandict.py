@@ -8,7 +8,7 @@ def urban_search(term):
     query = requests.get(BASE_URL.format(term)).json()
     if query:
         try:
-            definition = query['list'][0]['definition'].strip()
+            definition = query['list'][0]['definition'].strip().replace('  ', ' ')
             return [term, definition]
         except (IndexError, KeyError) as error:
             return None
