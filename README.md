@@ -4,7 +4,10 @@ Urban Dictionary phrase lookup script for Sopel IRC bot.
 
 ## Installation
 
-Tested on Ubuntu 1604LTS. Requires requests.
+Tested on Ubuntu 16.04 LTS.
+
+Aside from Sopel itself, sopel-urbandict requires `requests`. Sopel itself has since version 6.3.0, so you probably already have it, but if you don't:
+
 ```
 sudo pip3 install requests
 ```
