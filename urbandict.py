@@ -1,4 +1,5 @@
 from __future__ import print_function
+import re
 import requests
 
 BASE_URL = "http://api.urbandictionary.com/v0/define?term={}"
@@ -8,7 +9,8 @@ def urban_search(term):
     query = requests.get(BASE_URL.format(term)).json()
     if query:
         try:
-            definition = query['list'][0]['definition'].strip().replace('  ', ' ')
+            _definition = query['list'][0]['definition'].strip().replace('  ', ' ')
+            definition = re.sub(r"\[*\]*", "", _definition)
             return [term, definition]
         except (IndexError, KeyError) as error:
             return None
